@@ -5,17 +5,15 @@
   
 
   
-  <title>项目3（construct3） | 殷轲的博客</title>
+  <title>2020-10-12-construct3 | 殷轲的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目3（construct3）1.任务1:建立一个简单电路(1)设计与门验证电路  (2)画真值表验证与门功能 | In A | IN B | Out ||:—–:|:—–:|:—–:|:—–:|:—–:|| 0 | 0 | 0 || 0 | 1 | 0 || 1 | 0 | 0 || 1 | 1 | 1 | 2.任务2:验证电路等价       A B C O1 O2    0 0 0 0 0">
-<meta property="og:type" content="article">
-<meta property="og:title" content="项目3（construct3）">
-<meta property="og:url" content="http://example.com/2020/10/13/2020-10-05-construct3/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="2020-10-12-construct3">
+<meta property="og:url" content="http://example.com/2020/10/13/2020-10-12-construct3/index.html">
 <meta property="og:site_name" content="殷轲的博客">
-<meta property="og:description" content="项目3（construct3）1.任务1:建立一个简单电路(1)设计与门验证电路  (2)画真值表验证与门功能 | In A | IN B | Out ||:—–:|:—–:|:—–:|:—–:|:—–:|| 0 | 0 | 0 || 0 | 1 | 0 || 1 | 0 | 0 || 1 | 1 | 1 | 2.任务2:验证电路等价       A B C O1 O2    0 0 0 0 0">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-13T06:41:33.025Z">
-<meta property="article:modified_time" content="2020-10-13T07:53:09.004Z">
+<meta property="article:published_time" content="2020-10-13T08:02:33.000Z">
+<meta property="article:modified_time" content="2020-10-13T08:02:33.503Z">
 <meta property="article:author" content="殷轲">
 <meta name="twitter:card" content="summary">
   
@@ -66,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2020-10-05-construct3" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2020-10-12-construct3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/10/13/2020-10-05-construct3/" class="article-date">
-  <time datetime="2020-10-13T06:41:33.025Z" itemprop="datePublished">2020-10-13</time>
+    <a href="/2020/10/13/2020-10-12-construct3/" class="article-date">
+  <time datetime="2020-10-13T08:02:33.000Z" itemprop="datePublished">2020-10-13</time>
 </a>
     
   </div>
@@ -80,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      项目3（construct3）
+      2020-10-12-construct3
     </h1>
   
 
@@ -88,131 +86,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="项目3（construct3）"><a href="#项目3（construct3）" class="headerlink" title="项目3（construct3）"></a>项目3（construct3）</h2><p>1.<strong>任务1:建立一个简单电路</strong><br>(1)设计与门验证电路</p>
-
-<p>(2)画真值表验证与门功能</p>
-<p>| In A | IN B | Out |<br>|:—–:|:—–:|:—–:|:—–:|:—–:|<br>| 0 | 0 | 0 |<br>| 0 | 1 | 0 |<br>| 1 | 0 | 0 |<br>| 1 | 1 | 1 |</p>
-<p>2.<strong>任务2:验证电路等价</strong></p>
- 
-
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>O1</th>
-<th>O2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>3.<strong>任务3:理解存储电路</strong> </p>
-<table>
-<thead>
-<tr>
-<th>~Set</th>
-<th>~Reset</th>
-<th>Q（X）</th>
-<th>~Q（Y）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>4.<strong>任务4:设计全加电路</strong> </p>
-
-
-
-<p>13 Oct 2020</p>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/13/2020-10-05-construct3/" data-id="ckg7o6b2k00004sv50kjzbsny" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/13/2020-10-12-construct3/" data-id="ckg7oh5050000cov5hm739ryj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,7 +146,7 @@
       <ul>
         
           <li>
-            <a href="/2020/10/13/2020-10-05-construct3/">项目3（construct3）</a>
+            <a href="/2020/10/13/2020-10-12-construct3/">2020-10-12-construct3</a>
           </li>
         
           <li>
