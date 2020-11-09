@@ -64,6 +64,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2020-11-05-homework7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/09/2020-11-05-homework7/" class="article-date">
+  <time datetime="2020-11-09T09:19:36.914Z" itemprop="datePublished">2020-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/homework/">homework</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/09/2020-11-05-homework7/">第五次作业</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第五次作业"><a href="#第五次作业" class="headerlink" title="第五次作业"></a>第五次作业</h2><p>1、<strong>1. Program with machine language according to the following c.</strong><br>int_8 a = 1;<br>int_8 c = a + 3;<br>1）Write your assembly code &amp; machine code<br>2）Explain machine code execution with the fetch-decode-execute cycle<br>3）Explain functions about IR, PC, ACC registers in a CPU<br>4）Explain physical meaning about vars a &amp; c in a machine<br>&emsp;&emsp;1)LOD # 1–&gt;STO X –&gt; LOD X –&gt; ADD#3 –&gt; STO Y –&gt; HLT<br>&emsp;&emsp;2)Main memory –&gt; fetch instruction –&gt; Decode instruction –&gt;Registers –&gt;Get data –&gt;Execute the instruction –&gt; Main memory<br>&emsp;&emsp;3) <strong>IR</strong>：指令寄存器，用来保存当前正在执行的一条指令<br>&emsp;&emsp;&emsp;<strong>PC</strong>：程序计数器，存放下一条指令在内存中的地址<br>&emsp;&emsp;&emsp;<strong>ACC</strong>：累加寄存器，功能是当运算器的算术逻辑单元(ALU)执行全部算术和逻辑运算时，为ALU提供一个工作区，暂时存放ALU运算结果<br>&emsp;&emsp;4)存在寄存器里面的一串二进制数</p>
+<p>2、<strong>简答题</strong><br>1）What are stored in memory?<br>2）Can a data or a instruction stored in the same place?<br>3）Explain Instruction Format with example instructions.<br>&emsp;&emsp;1) 指令和数据<br>&emsp;&emsp;2) 可以<br>&emsp;&emsp;3)指令格式是描述计算机内部电路中运行高低电平的组合<br>&emsp;&emsp;&emsp;例如lw $t2, 0($t1)<br>&emsp;&emsp;&emsp;100011 01001 01010 0000000000000000<br>&emsp;&emsp;&emsp;opcode  rs     rt     offset</p>
+<p>3、<strong>解释以下词汇</strong><br>1）<strong>汇编语言</strong>（Assembly Language）:A language that uses mnemonic codes（助记忆符号） to represent machinelanguage instructions.<br>2）<strong>编译</strong>（Compiler）:A program that translates a high-level language program into machine code.<br>3）<strong>命令式语言</strong>（Imperative programming）:Imperative programming is a programming paradigm that uses statements that change a program’s state.<br>4）<strong>函数编程语言</strong>（Functional programming）:Functional programming is a programming paradigm–a style of building the structure and elements of computer programs–that treats computation as the evaluation of mathematical functions and avoid changing-state and mutable data.<br>5）<strong>过程式编程</strong>（Procedural programming）:A programming paradigm, derived from structured programming, based upon the concept of the procedure call.<br>05 Nov 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/09/2020-11-05-homework7/" data-id="ckhacrzg800007gv53zuygufe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2020-10-18-homework6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/18/2020-10-18-homework6/" class="article-date">
@@ -91,7 +134,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="第六次作业"><a href="#第六次作业" class="headerlink" title="第六次作业"></a>第六次作业</h2><p>1.计算机由五部分组成，数据通路(运算器、datapath)、控制器(数据通路与控制器构成处理器processor)、存储器、输入设备、输出设备(输入与输出合称I/O)<br>2.64Mb=64×1024×1024=67,108,864byets=2^26 即需要26bits地址<br>3.算术逻辑运算单元ALU(Arithmetic Logic Unit) 高速缓冲存储器(Cache)<br>4.二级存储（secondary storage，auxiliary storage）是计算机主存储器或内存之外的所有可访问数据存储器，是程序和数据长期保存的地方 如硬盘、光盘<br>5.<strong>CPU:</strong> A central processing unit (CPU), also called a central processor, main processor or just processor, is the electronic circuitry within a computer that executes instructions that make up a computer program.<br>6.<strong>RAM:</strong> Random-access memory (RAM) is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code.<br>7.<strong>ROM:</strong> Read-only memory (ROM) is a type of non-volatile memory used in computers and other electronic devices.<br>8.<strong>Bus (computing):</strong> In computer architecture, a bus (a contraction of the Latin omnibus, and historically also called data highway) is a communication system that transfers data between components inside a computer, or between computers.<br>9.<strong>Parallel Computing:</strong> Parallel computing is a type of computation where many calculations or the execution of processes are carried out simultaneously.<br>10.DDR3 3是第三代双倍速率同步动态随机存储器 1333是1333Mhz的内存分频<br>11.8G DDR3-1600的内存条也会被识别成8G DDR3-1333，不能提高性能<br>12.4G×2 DDR3-1333内存，可以提高存取速度来提升电脑的性能<br>13.16G=2^4×2^30=2^34bytes 即需要34bits地址</p>
-<p>15 Oct 2020</p>
+<p>18 Oct 2020</p>
 
       
     </div>
@@ -719,7 +762,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
     </div>
   </div>
 
@@ -730,6 +773,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/11/09/2020-11-05-homework7/">第五次作业</a>
+          </li>
         
           <li>
             <a href="/2020/10/18/2020-10-18-homework6/">第六次作业</a>
@@ -745,10 +792,6 @@
         
           <li>
             <a href="/2020/10/08/2020-10-05-homework4/">第四次作业</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/08/2020-10-05-homework3/">第三次作业</a>
           </li>
         
       </ul>
