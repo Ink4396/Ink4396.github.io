@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第八次作业 | 殷轲的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第八次作业1、1. 阅读 Pseudocode Standard1）用伪代码描述将十进制转换成16进制的方法 12345678910111213141516171819202122232425262728293031SET FUNCTION TRANSFORM(num)	remainder &#x3D; num % 16	IF remainder &#x2F; 16 !&#x3D; 0 THEN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第八次作业">
+<meta property="og:url" content="http://example.com/2020/11/09/2020-11-08-homework8/index.html">
+<meta property="og:site_name" content="殷轲的博客">
+<meta property="og:description" content="第八次作业1、1. 阅读 Pseudocode Standard1）用伪代码描述将十进制转换成16进制的方法 12345678910111213141516171819202122232425262728293031SET FUNCTION TRANSFORM(num)	remainder &#x3D; num % 16	IF remainder &#x2F; 16 !&#x3D; 0 THEN">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-09T09:51:32.558Z">
+<meta property="article:modified_time" content="2020-11-09T10:17:54.576Z">
+<meta property="article:author" content="殷轲">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="殷轲的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">殷轲的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2020-11-08-homework8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/09/2020-11-08-homework8/" class="article-date">
+  <time datetime="2020-11-09T09:51:32.558Z" itemprop="datePublished">2020-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/homework/">homework</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第八次作业
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第八次作业"><a href="#第八次作业" class="headerlink" title="第八次作业"></a>第八次作业</h2><p>1、<strong>1. 阅读 Pseudocode Standard</strong><br>1）用伪代码描述将十进制转换成16进制的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">SET FUNCTION TRANSFORM(num)</span><br><span class="line">	remainder &#x3D; num % 16</span><br><span class="line">	IF remainder &#x2F; 16 !&#x3D; 0 THEN</span><br><span class="line">	TRANSFORM(remainder &#x2F; 16)</span><br><span class="line">	END IF</span><br><span class="line">	CASE remainder OF</span><br><span class="line">		0 : PRINT &quot;0&quot;</span><br><span class="line">		1 : PRINT &quot;1&quot;</span><br><span class="line">		2 : PRINT &quot;2&quot;</span><br><span class="line">		3 : PRINT &quot;3&quot;</span><br><span class="line">		4 : PRINT &quot;4&quot;</span><br><span class="line">		5 : PRINT &quot;5&quot;</span><br><span class="line">		6 : PRINT &quot;6&quot;</span><br><span class="line">		7 : PRINT &quot;7&quot;</span><br><span class="line">		8 : PRINT &quot;8&quot;</span><br><span class="line">		9 : PRINT &quot;9&quot;</span><br><span class="line">		10 : PRINT &quot;A&quot;</span><br><span class="line">		11 : PRINT &quot;B&quot;</span><br><span class="line">		12 : PRINT &quot;C&quot;</span><br><span class="line">		13 : PRINT &quot;D&quot;</span><br><span class="line">		14 : PRINT &quot;E&quot;</span><br><span class="line">		15 : PRINT &quot;F&quot;</span><br><span class="line">	ENDCASE</span><br><span class="line">ENDFUNCTION</span><br><span class="line"></span><br><span class="line">READ number</span><br><span class="line">IF number &lt; 0 THEN</span><br><span class="line">  PRINT &quot;-&quot;</span><br><span class="line">  number &#x3D; -number</span><br><span class="line">END IF</span><br><span class="line">TURN(number)</span><br></pre></td></tr></table></figure>
+<p>2）C语言实现（先用注释写好算法，然后翻译）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transform</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  	<span class="keyword">int</span> remainder=num % <span class="number">16</span>;<span class="comment">//remainder = num/16的余数 </span></span><br><span class="line">  	<span class="keyword">if</span> (num/<span class="number">16</span>!=<span class="number">0</span>)<span class="comment">//转换num/16的商直到转换到num/16=0</span></span><br><span class="line">  	transform(num / <span class="number">16</span>);</span><br><span class="line">  	<span class="keyword">switch</span> (remainder)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:<span class="comment">//0 : PRINT &quot;0&quot;</span></span><br><span class="line">    	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:<span class="comment">//1 : PRINT &quot;1&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:<span class="comment">//2 : PRINT &quot;2&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//3 : PRINT &quot;3&quot;</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">//4 : PRINT &quot;4&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">//5 : PRINT &quot;5&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:<span class="comment">//6 : PRINT &quot;6&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;6&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:<span class="comment">//7 : PRINT &quot;7&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;7&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:<span class="comment">//8 : PRINT &quot;8&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;8&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:<span class="comment">//9 : PRINT &quot;9&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:<span class="comment">//10 : PRINT &quot;A&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:<span class="comment">//11 : PRINT &quot;B&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:<span class="comment">//12 : PRINT &quot;C&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;C&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">13</span>:<span class="comment">//13 : PRINT &quot;D&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">14</span>:<span class="comment">//14 : PRINT &quot;E&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;E&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">15</span>:<span class="comment">//15 : PRINT &quot;F&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;F&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number;</span><br><span class="line">  	<span class="built_in">cin</span> &gt;&gt; number;<span class="comment">//读入num </span></span><br><span class="line">  	<span class="keyword">if</span> (number&lt;<span class="number">0</span>)<span class="comment">//如果num是负数则在输出前加上负号并对把num取反</span></span><br><span class="line">	&#123; </span><br><span class="line">    	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    	number = -number;</span><br><span class="line">  	&#125;</span><br><span class="line">  	transform(number);<span class="comment">//输出16进制的num</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3）使用 -1, 0, 1, 15, 26，3265 最为输入测试你的程序</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>15</td>
+<td>F</td>
+</tr>
+<tr>
+<td>26</td>
+<td>1A</td>
+</tr>
+<tr>
+<td>3265</td>
+<td>CC1</td>
+</tr>
+<tr>
+<td>4）Explain physical meaning about vars a &amp; c in a machine</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;1)LOD # 1–&gt;STO X –&gt; LOD X –&gt; ADD#3 –&gt; STO Y –&gt; HLT</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;2)Main memory –&gt; fetch instruction –&gt; Decode instruction –&gt;Registers –&gt;Get data –&gt;Execute the instruction –&gt; Main memory</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;3) <strong>IR</strong>：指令寄存器，用来保存当前正在执行的一条指令</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;&emsp;<strong>PC</strong>：程序计数器，存放下一条指令在内存中的地址</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;&emsp;<strong>ACC</strong>：累加寄存器，功能是当运算器的算术逻辑单元(ALU)执行全部算术和逻辑运算时，为ALU提供一个工作区，暂时存放ALU运算结果</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;4)存在寄存器里面的一串二进制数</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>2、<strong>简答题</strong><br>1）What are stored in memory?<br>2）Can a data or a instruction stored in the same place?<br>3）Explain Instruction Format with example instructions.<br>&emsp;&emsp;1) 指令和数据<br>&emsp;&emsp;2) 可以<br>&emsp;&emsp;3)指令格式是描述计算机内部电路中运行高低电平的组合<br>&emsp;&emsp;&emsp;例如lw $t2, 0($t1)<br>&emsp;&emsp;&emsp;100011 01001 01010 0000000000000000<br>&emsp;&emsp;&emsp;opcode  rs     rt     offset</p>
+<p>3、<strong>解释以下词汇</strong><br>1）<strong>汇编语言</strong>（Assembly Language）:A language that uses mnemonic codes（助记忆符号） to represent machinelanguage instructions.<br>2）<strong>编译</strong>（Compiler）:A program that translates a high-level language program into machine code.<br>3）<strong>命令式语言</strong>（Imperative programming）:Imperative programming is a programming paradigm that uses statements that change a program’s state.<br>4）<strong>函数编程语言</strong>（Functional programming）:Functional programming is a programming paradigm–a style of building the structure and elements of computer programs–that treats computation as the evaluation of mathematical functions and avoid changing-state and mutable data.<br>5）<strong>过程式编程</strong>（Procedural programming）:A programming paradigm, derived from structured programming, based upon the concept of the procedure call.</p>
+<p>05 Nov 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/09/2020-11-08-homework8/" data-id="ckhae8mus0000j4v5fhkgc5ks" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/09/2020-11-05-homework7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第七次作业</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/homework/">homework</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/09/2020-11-08-homework8/">第八次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/09/2020-11-05-homework7/">第七次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/18/2020-10-18-homework6/">第六次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/13/2020-10-13-construct3/">项目3（construct3）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/08/2020-10-05-homework5/">第五次作业</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 殷轲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
