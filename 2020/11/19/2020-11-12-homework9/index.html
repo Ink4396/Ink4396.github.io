@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第九次作业 | 殷轲的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第九次作业1. Bubble Sort the list: 33, 56, 17, 8, 95, 22。Make sure the final result is from small to large.&amp;emsp;**Write out the list after the 2nd pass. (10 points) **(1)33, 56, 17, 8, 95, 22  （初始）(2)33,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第九次作业">
+<meta property="og:url" content="http://example.com/2020/11/19/2020-11-12-homework9/index.html">
+<meta property="og:site_name" content="殷轲的博客">
+<meta property="og:description" content="第九次作业1. Bubble Sort the list: 33, 56, 17, 8, 95, 22。Make sure the final result is from small to large.&amp;emsp;**Write out the list after the 2nd pass. (10 points) **(1)33, 56, 17, 8, 95, 22  （初始）(2)33,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-19T06:12:46.258Z">
+<meta property="article:modified_time" content="2020-11-19T08:22:11.837Z">
+<meta property="article:author" content="殷轲">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="殷轲的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">殷轲的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2020-11-12-homework9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/19/2020-11-12-homework9/" class="article-date">
+  <time datetime="2020-11-19T06:12:46.258Z" itemprop="datePublished">2020-11-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/homework/">homework</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第九次作业
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第九次作业"><a href="#第九次作业" class="headerlink" title="第九次作业"></a>第九次作业</h2><p><strong>1. Bubble Sort the list: 33, 56, 17, 8, 95, 22。Make sure the final result is from small to large.</strong><br>&emsp;**Write out the list after the 2nd pass. (10 points) **<br>(1)33, 56, 17, 8, 95, 22  （初始）<br>(2)33, 17, 8, 56, 22, 95  （第一次）<br>(3)17, 8, 33, 22, 56, 95  （第二次）</p>
+<p><strong>2. Give a sorted array as list={60,65,75,80,90,95}. Design an algorithm to insert the value of x into the sorted array. Then test the algorithm with value 50,67,99.</strong><br>&emsp;<strong>思考：为什么选择插入点在list头上、中间、尾巴上的三个数作为算法测试的数据，你能解释吗？</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 100</span></span><br><span class="line"><span class="built_in">list</span>[SIZE]=&#123;<span class="number">60</span>,<span class="number">65</span>,<span class="number">75</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">95</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shift</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>,size=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		size++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=size<span class="number">-1</span>;i&gt;=n;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">list</span>[i+<span class="number">1</span>]=<span class="built_in">list</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>,size=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		size++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;<span class="built_in">list</span>[i]&amp;&amp;i&lt;size)</span><br><span class="line">	&#123;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	shift(i);</span><br><span class="line">	<span class="built_in">list</span>[i]=x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x,i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,<span class="built_in">list</span>[i]);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	i=<span class="number">0</span>;</span><br><span class="line">	insert(<span class="number">50</span>);</span><br><span class="line">	insert(<span class="number">67</span>);</span><br><span class="line">	insert(<span class="number">99</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,<span class="built_in">list</span>[i]);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选择插入点在list头上、中间、尾巴上的三个数作为算法测试的数据是因为头上没有前一个数，中间有前后两个数，尾巴上没有后一个数，比较前后大小时考虑的方式不同</p>
+<p><strong>3. What is the state of the stack after the following sequence of Push and Pop operations?</strong><br>&emsp;<strong>Push “anne”; Push “get”; Push “your” ; Pop; Push “my” Push “gun”</strong><br>&emsp;gun<br>&emsp;my<br>&emsp;get<br>&emsp;anne</p>
+<p>12 Nov 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/19/2020-11-12-homework9/" data-id="ckhokipbq0000z8v5hqbtg87k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/09/2020-11-08-homework8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第八次作业</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/homework/">homework</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/19/2020-11-12-homework9/">第九次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/09/2020-11-08-homework8/">第八次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/09/2020-11-05-homework7/">第七次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/18/2020-10-18-homework6/">第六次作业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/13/2020-10-13-construct3/">项目3（construct3）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 殷轲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
