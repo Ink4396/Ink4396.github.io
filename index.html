@@ -64,6 +64,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-3D游戏编程/2021-09-18-homework1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/" class="article-date">
+  <time datetime="2021-09-18T09:56:39.073Z" itemprop="datePublished">2021-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/">离散仿真引擎基础-作业1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="离散仿真引擎基础-作业1"><a href="#离散仿真引擎基础-作业1" class="headerlink" title="离散仿真引擎基础-作业1"></a>离散仿真引擎基础-作业1</h2><p><strong>1、简答题</strong><br>解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。</p>
+<pre><code>区别:
+    游戏对象：对象是具有一定属性与功能的事物的实体化。游戏对象就是在游戏过程中承担一部分职能并携带一定属性的组件，例如游戏角色、怪物、BOSS、地形等等。
+    资源: 资源是由我们预先准备好的素材，在创作游戏时可以直接迁移、重复使用。
+
+联系:
+    资源可以作为游戏对象创建的模板或者一部分，而游戏对象可以被保存为资源以重复使用。</code></pre>
+<p>下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构）</p>
+<pre><code>资源目录当中包括场景(Scenes)、动画(Animations)、预设(Prefabs)、脚本(Screpts)、精灵(Sprites)等等。资源目录可以根据实际需要进行增减，比较典型的模型、材料等目录。
+
+对象组织的目录结构比较简单，包括摄像头、光源以及自己创建的游戏对象等，在目录中可以点开查看对象的子对象等。</code></pre>
+<p>编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件<br>基本行为包括 Awake() Start() Update() FixedUpdate() LateUpdate()<br>常用事件包括 OnGUI() OnDisable() OnEnable()<br>查找脚本手册，了解 GameObject，Transform，Component 对象<br>分别翻译官方对三个对象的描述（Description）<br>描述下图中 table 对象（实体）的属性、table 的 Transform 的属性、 table 的部件<br>本题目要求是把可视化图形编程界面与 Unity API 对应起来，当你在 Inspector 面板上每一个内容，应该知道对应 API。<br>例如：table 的对象是 GameObject，第一个选择框是 activeSelf 属性。<br>用 UML 图描述 三者的关系（请使用 UMLet 14.1.1 stand-alone版本出图）<br>资源预设（Prefabs）与 对象克隆 (clone)<br>预设（Prefabs）有什么好处？<br>预设与对象克隆 (clone or copy or Instantiate of Unity Object) 关系？<br>制作 table 预制，写一段代码将 table 预制资源实例化成游戏对象<br>2、 编程实践，小游戏</p>
+<p>游戏内容： 井字棋 或 贷款计算器 或 简单计算器 等等<br>技术限制： 仅允许使用 IMGUI 构建 UI<br>作业目的：<br>了解 OnGUI() 事件，提升 debug 能力<br>提升阅读 API 文档能力<br><strong>一、互联网时代的热点领域选择</strong><br>互联网时代的最热点领域，毫无疑问是AI研究<br>AI研究出现了新的高潮，有两个方面的表现，一方面在于人工智能理论方面有了新的进展，另一方面是由于突飞猛进发展的计算机硬件。随着不断提高的计算机速度、不断扩大的存储容量、不断降低的价格，以及不断发展的网络，很多在以前无法完成的工作在现在都能够实现。当前，智能接口、数据挖掘、主体及多主体系统是人工智能研究的三个热点。<br>（一）智能接口技术是研究如何使人们能够方便自然地与计算机交流。为了实现这一目标，要求计算机能够看懂文字、听懂语言、说话表达，甚至能够进行不同语言之间的翻译，而这些功能的实现又依赖于知识表示方法的研究。因此，智能接口技术的研究既有巨大的应用价值，又有基础的理论意义。目前，智能接口技术已经取得了显著成果，文字识别、语音识别、语音合成、图像识别、机器翻译及自然语言理解等技术已经开始实用化。<br>（二）数据挖掘就是从大量的、不完全的、有噪声的、模糊的、随机的实际应用数据中提取隐含在其中的、人们事先不知道的、但是又潜在有用的信息和知识的过程。数据挖掘和知识发现的研究目前已经形成了三根强大的技术支柱：数据库、人工智能和数理统计。<br>（三）主体系统是具有信念、愿望、意图、能力、选择、承诺等心智状态的实体，比对象的粒度更大，智能性更高，而且具有一定的自主性。主体试图自治、独立地完成任务，而且可以和环境交互，与其他主体通信，通过规划达到目标。多主体系统主要研究在逻辑上或物理上分离的多个主体之间进行协调智能行为，最终实现问题求解。<br>今天，AI能力更倾向于应用到人类或其他动物智能的某一或某几方面，并用自动化替代，有时候也用于对其进行模拟。不过在有些情况下，这些在高性能计算机调度之下的智能行为远远比人类的行为更为强大。<br>（一）路径查找和路径规划<br>在最小代价路径规划和路径查找系统中，可以使用专门的技术――它们中有一些非常灵巧微妙，另一些则仅仅是用蛮力解决――来模拟对理解的直觉迅速转换或者对普通人大脑生成过程的识别，结果有时非常令人惊讶!路径查找就是路径规划问题的一种变体。<br>为了找到最佳路线，我们需要计算通过每一个往返路线的时间开销。时间就是金钱；所以，我们更倾向于关注最小代价路线。这也适用于飞机航线的制定，它们需要在不同的城市中逗留或更换航班等等。<br>（二）逻辑和不确定性<br>计算机编程就像是使用逻辑砖块建造一栋房子一样。事实上，人工智能编程通常被认为有两种逻辑形式――命题逻辑和形式逻辑――的一种特殊混合应用，也被认为是一种谓词演算。更进一步说，编程语言中，我们更是采用了一个命题逻辑更加专门化的形式：布尔逻辑或者布尔代数。<br>命题逻辑应用于具有真和假两种状态的断言以及命题领域之中。古典命题逻辑或者布尔逻辑处理的都只有两种状态：或者为真，或者为假。<br>对象之间联系以及这些联系的真假值（布尔形式）在内的命题逻辑的一种强化延伸就是谓词演算（和中学学的数学计算毫无关系）所包含的。<br>但是当我们在逻辑中使用这些谓词的时候，就算是最复杂的逻辑语句，我们最终获得的也只是一个黑白分明的世界：一个事物不是真的就是假的。如果一个事物不是真的也不是假的，那么它一定是不存在的事物。否则，它必然两者居其一。<br>（三）自然语言处理<br>在AI应用中最重要的一部分就是自然语言处理。但是，现实却是，自然语言处理系统并不能像人类那样能很好地分析这些并没有太强逻辑结构地说出的以及写出的词语的含义。不过这样有限的功能对于残障人士、翻译系统、词语处理拼写和语法检查器来说仍然是非常有用的。<br>（四）神经网络<br>一种信息处理结构就是神经网络，对诸如大脑之类的生物学神经系统进行尝试模仿来进行单纯数据的转换成为信息，就是它的原理。神经网络由很多相互联系的处理小元素：神经节点，功能相当于一个大脑神经细胞和神经元（synapse）组成，它们相互交互，共同解决具体问题。神经网络上的元素将输入模式转换成为输出模式，而这些输出模式又同时可以成为其他神经网络的输入模式。神经网络通过实例学习，这一点和人类的做法一样。神经网络需要设置为适用于某些具体应用中，比如通过学习过程识别图像。而对于生命系统本身，我们对学习的过程涉及到神经细胞之间的突触联系的调整这一说法保留质疑。<br>当前，大部分AI能力的研究方向是研究如何完整地模拟一个智能过程，而不是对器官所使用的每一个低级步骤进行再现。一个极端显著的示例就是利用数据库和搜索软件获取信息的专家系统。数据库向大脑提供基本没有任何关联的数据，同时这些数据的传输和其在大脑中的存储形式也毫不相同。但是很多专家系统还是能够相当好地担当起诸如像内科医生这样的专业角色。当然它们也仅仅被应用于它们非常熟悉的领域。<br><strong>二、互联网营销思维</strong><br>互联网营销思维是以爆品为核心的迭代思维：<br>“爆品+新4C（场景、社群、内容、人与人连接）+迭代”<br>讲到互联网营销不得不提小米，初期小米零预算做广告，而到现在已经估值10亿美金。雷布斯又是怎么做到的呢？<br>首先，小米在创业之初并没有做手机，而是做安卓第三方的刷机room系统，这是极小部分手机发烧友才玩的东西。<br>小米团队先在手机刷机论坛上先找到一百个铁杆粉丝，与这群粉丝深度互动。过程中把MIUI做到极致（极致设计、极致体验），从而使米粉从100个变成了1万个10万个100万个。后面，小米顺势推出了小米手机，又一次做到了极致：同配置手机其他品牌要三四千的配置，而小米只要1999元。<br>这令人尖叫的价格，让用户粉丝们想抢都抢不到，每月的一轮轮的手机预定活动也赚足了眼球。小米这种营销模式，也被人吐槽为卖期货或者饥饿营销。原因是虽然在产品发布的时候性价比极高，但是市场能够预定到的量却很少，而后期大批量出货的时候，硬件生产成本大大降低，这个价格已经并没有太大优势。<br>打个比方，现价8799元的iPhone X 只要5799元就可以预约购买，但3年后可以拿到货。但是稀缺性洽洽造成了产品的传播性，不可否认雷军是互联网营销的天才，雷军深入深入研究手机成本周期后得到的策略。<br>雷军在打法上面总结就以下三点：<br>极致单品：从MIUI到小米手机再到全系列产品，每个阶段小米都做单品做到极致，每一款单品都有让人尖叫的点，通过体验提升逼格、通过价格感动用户，让客户产生口碑传播的意愿；<br>社群迭代：前期先找到种子用户，培养参与感，让种子用户参与到产品的研过程中，根据社群的反馈进行快速迭代，不断积累产品势能。在粉丝的需求不断被满足和超越过程中，促成口碑传播；<br>口碑传播：有了1、2的基础，通过事件营销、网络渠道，持续与粉丝互动，让用户来参与营销过程中。例如，一个米粉在小米手机预售阶段没有抢到，那么他会让亲戚朋友帮忙抢，无形之中介绍了产品也扩散了用户。用户购买到产品后由于兴奋和喜悦，也会在朋友圈进行分享和扩散。但要注意的是口碑传播一定要做到自愿传播，利诱下的口碑传播并不是真正的口碑传播，顶多算病毒传播。</p>
+<p>31 Dec 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/" data-id="cktpmhyl00000agv57zn695dy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-软件工程导论/2020-12-31-construct10" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-31-construct10/" class="article-date">
@@ -535,48 +589,6 @@
 
 
   
-    <article id="post-软件工程导论/2020-10-18-homework6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/18/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-10-18-homework6/" class="article-date">
-  <time datetime="2020-10-18T11:07:34.234Z" itemprop="datePublished">2020-10-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/18/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-10-18-homework6/">第六次作业</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第六次作业"><a href="#第六次作业" class="headerlink" title="第六次作业"></a>第六次作业</h2><p>1.计算机由五部分组成，数据通路(运算器、datapath)、控制器(数据通路与控制器构成处理器processor)、存储器、输入设备、输出设备(输入与输出合称I/O)<br>2.64Mb=64×1024×1024=67,108,864byets=2^26 即需要26bits地址<br>3.算术逻辑运算单元ALU(Arithmetic Logic Unit) 高速缓冲存储器(Cache)<br>4.二级存储（secondary storage，auxiliary storage）是计算机主存储器或内存之外的所有可访问数据存储器，是程序和数据长期保存的地方 如硬盘、光盘<br>5.<strong>CPU:</strong> A central processing unit (CPU), also called a central processor, main processor or just processor, is the electronic circuitry within a computer that executes instructions that make up a computer program.<br>6.<strong>RAM:</strong> Random-access memory (RAM) is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code.<br>7.<strong>ROM:</strong> Read-only memory (ROM) is a type of non-volatile memory used in computers and other electronic devices.<br>8.<strong>Bus (computing):</strong> In computer architecture, a bus (a contraction of the Latin omnibus, and historically also called data highway) is a communication system that transfers data between components inside a computer, or between computers.<br>9.<strong>Parallel Computing:</strong> Parallel computing is a type of computation where many calculations or the execution of processes are carried out simultaneously.<br>10.DDR3 3是第三代双倍速率同步动态随机存储器 1333是1333Mhz的内存分频<br>11.8G DDR3-1600的内存条也会被识别成8G DDR3-1333，不能提高性能<br>12.4G×2 DDR3-1333内存，可以提高存取速度来提升电脑的性能<br>13.16G=2^4×2^30=2^34bytes 即需要34bits地址</p>
-<p>18 Oct 2020</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/18/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-10-18-homework6/" data-id="cktplqvmq000d3gv54uax7gs0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -592,7 +604,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
     </div>
   </div>
 
@@ -607,7 +619,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
     </div>
   </div>
 
@@ -618,6 +630,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/">离散仿真引擎基础-作业1</a>
+          </li>
         
           <li>
             <a href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-31-construct10/">项目10（互联网时代的热点领域选择、营销方法）</a>
@@ -633,10 +649,6 @@
         
           <li>
             <a href="/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/">项目7（IT的伦理与道德）</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/">项目5（洗衣机）</a>
           </li>
         
       </ul>
