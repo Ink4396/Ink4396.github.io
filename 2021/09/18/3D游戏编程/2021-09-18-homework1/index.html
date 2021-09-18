@@ -7,16 +7,16 @@
   
   <title>离散仿真引擎基础-作业1 | 殷轲的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="离散仿真引擎基础-作业11、简答题解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。 区别:     游戏对象：对象是具有一定属性与功能的事物的实体化。游戏对象就是在游戏过程中承担一部分职能并携带一定属性的组件，例如游戏角色、怪物、BOSS、地形等等。     资源: 资源是由我们预先准备好的素材，在创作游戏时可以直接迁移、重复使用。  联系:     资源可以作为游">
+  <meta name="description" content="离散仿真引擎基础-作业1** 1、简答题 **解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。 区别:     游戏对象：对象是具有一定属性与功能的事物的实体化。游戏对象就是在游戏过程中承担一部分职能并携带一定属性的组件，例如游戏角色、怪物、BOSS、地形等等。     资源: 资源是由我们预先准备好的素材，在创作游戏时可以直接迁移、重复使用。  联系:     资">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散仿真引擎基础-作业1">
 <meta property="og:url" content="http://example.com/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/index.html">
 <meta property="og:site_name" content="殷轲的博客">
-<meta property="og:description" content="离散仿真引擎基础-作业11、简答题解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。 区别:     游戏对象：对象是具有一定属性与功能的事物的实体化。游戏对象就是在游戏过程中承担一部分职能并携带一定属性的组件，例如游戏角色、怪物、BOSS、地形等等。     资源: 资源是由我们预先准备好的素材，在创作游戏时可以直接迁移、重复使用。  联系:     资源可以作为游">
+<meta property="og:description" content="离散仿真引擎基础-作业1** 1、简答题 **解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。 区别:     游戏对象：对象是具有一定属性与功能的事物的实体化。游戏对象就是在游戏过程中承担一部分职能并携带一定属性的组件，例如游戏角色、怪物、BOSS、地形等等。     资源: 资源是由我们预先准备好的素材，在创作游戏时可以直接迁移、重复使用。  联系:     资">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/1.png">
 <meta property="article:published_time" content="2021-09-18T09:56:39.073Z">
-<meta property="article:modified_time" content="2021-09-18T11:22:27.727Z">
+<meta property="article:modified_time" content="2021-09-18T11:24:40.881Z">
 <meta property="article:author" content="殷轲">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/1.png">
@@ -94,7 +94,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="离散仿真引擎基础-作业1"><a href="#离散仿真引擎基础-作业1" class="headerlink" title="离散仿真引擎基础-作业1"></a>离散仿真引擎基础-作业1</h2><p><strong>1、简答题</strong><br>解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。</p>
+        <h2 id="离散仿真引擎基础-作业1"><a href="#离散仿真引擎基础-作业1" class="headerlink" title="离散仿真引擎基础-作业1"></a>离散仿真引擎基础-作业1</h2><p>** 1、简答题 **<br>解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。</p>
 <pre><code>区别:
     游戏对象：对象是具有一定属性与功能的事物的实体化。游戏对象就是在游戏过程中承担一部分职能并携带一定属性的组件，例如游戏角色、怪物、BOSS、地形等等。
     资源: 资源是由我们预先准备好的素材，在创作游戏时可以直接迁移、重复使用。
@@ -114,7 +114,7 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
 <p>预设与对象克隆 (clone or copy or Instantiate of Unity Object) 关系？</p>
 <pre><code>预设当中产生的对象与预设的对象是联系的，当修改预设时，它产生出来的对象也会被修改。
 而克隆中，母体和子体是独立的，相互不干扰。</code></pre>
-<p>2、 编程实践，小游戏<br>井字棋<br>设计思路：</p>
+<p>** 2、 编程实践，小游戏 **<br>井字棋<br>设计思路：</p>
 <pre><code>用一个二维数组map[3][3]记录棋盘每格状态
 界面布局根据Screen.width、Screen.height动态居中
 利用GUI.Button检测鼠标点击模拟下棋动作，以及Restart按钮
