@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第八次作业 | 殷轲的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第八次作业1、阅读 Pseudocode Standard1）用伪代码描述将十进制转换成16进制的方法 12345678910111213141516171819202122232425262728293031SET FUNCTION TRANSFORM(num)	remainder &#x3D; num % 16	IF remainder &#x2F; 16 !&#x3D; 0 THEN	TRA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第八次作业">
+<meta property="og:url" content="http://example.com/2020/11/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-08-homework8/index.html">
+<meta property="og:site_name" content="殷轲的博客">
+<meta property="og:description" content="第八次作业1、阅读 Pseudocode Standard1）用伪代码描述将十进制转换成16进制的方法 12345678910111213141516171819202122232425262728293031SET FUNCTION TRANSFORM(num)	remainder &#x3D; num % 16	IF remainder &#x2F; 16 !&#x3D; 0 THEN	TRA">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-09T09:51:32.558Z">
+<meta property="article:modified_time" content="2021-09-18T05:23:37.708Z">
+<meta property="article:author" content="殷轲">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="殷轲的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">殷轲的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-软件工程导论/2020-11-08-homework8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-08-homework8/" class="article-date">
+  <time datetime="2020-11-09T09:51:32.558Z" itemprop="datePublished">2020-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第八次作业
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第八次作业"><a href="#第八次作业" class="headerlink" title="第八次作业"></a>第八次作业</h2><p>1、<strong>阅读 Pseudocode Standard</strong><br>1）用伪代码描述将十进制转换成16进制的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">SET FUNCTION TRANSFORM(num)</span><br><span class="line">	remainder &#x3D; num % 16</span><br><span class="line">	IF remainder &#x2F; 16 !&#x3D; 0 THEN</span><br><span class="line">	TRANSFORM(remainder &#x2F; 16)</span><br><span class="line">	END IF</span><br><span class="line">	CASE remainder OF</span><br><span class="line">		0 : PRINT &quot;0&quot;</span><br><span class="line">		1 : PRINT &quot;1&quot;</span><br><span class="line">		2 : PRINT &quot;2&quot;</span><br><span class="line">		3 : PRINT &quot;3&quot;</span><br><span class="line">		4 : PRINT &quot;4&quot;</span><br><span class="line">		5 : PRINT &quot;5&quot;</span><br><span class="line">		6 : PRINT &quot;6&quot;</span><br><span class="line">		7 : PRINT &quot;7&quot;</span><br><span class="line">		8 : PRINT &quot;8&quot;</span><br><span class="line">		9 : PRINT &quot;9&quot;</span><br><span class="line">		10 : PRINT &quot;A&quot;</span><br><span class="line">		11 : PRINT &quot;B&quot;</span><br><span class="line">		12 : PRINT &quot;C&quot;</span><br><span class="line">		13 : PRINT &quot;D&quot;</span><br><span class="line">		14 : PRINT &quot;E&quot;</span><br><span class="line">		15 : PRINT &quot;F&quot;</span><br><span class="line">	ENDCASE</span><br><span class="line">ENDFUNCTION</span><br><span class="line"></span><br><span class="line">READ number</span><br><span class="line">IF number &lt; 0 THEN</span><br><span class="line">  PRINT &quot;-&quot;</span><br><span class="line">  number &#x3D; -number</span><br><span class="line">END IF</span><br><span class="line">TURN(number)</span><br></pre></td></tr></table></figure>
+<p>2）C语言实现（先用注释写好算法，然后翻译）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transform</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  	<span class="keyword">int</span> remainder=num % <span class="number">16</span>;<span class="comment">//remainder = num/16的余数 </span></span><br><span class="line">  	<span class="keyword">if</span> (num/<span class="number">16</span>!=<span class="number">0</span>)<span class="comment">//转换num/16的商直到转换到num/16=0</span></span><br><span class="line">		transform(num / <span class="number">16</span>);</span><br><span class="line">  	<span class="keyword">switch</span> (remainder)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:<span class="comment">//0 : PRINT &quot;0&quot;</span></span><br><span class="line">    	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:<span class="comment">//1 : PRINT &quot;1&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:<span class="comment">//2 : PRINT &quot;2&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//3 : PRINT &quot;3&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">//4 : PRINT &quot;4&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">//5 : PRINT &quot;5&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:<span class="comment">//6 : PRINT &quot;6&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;6&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:<span class="comment">//7 : PRINT &quot;7&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;7&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:<span class="comment">//8 : PRINT &quot;8&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;8&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:<span class="comment">//9 : PRINT &quot;9&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:<span class="comment">//10 : PRINT &quot;A&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:<span class="comment">//11 : PRINT &quot;B&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:<span class="comment">//12 : PRINT &quot;C&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;C&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">13</span>:<span class="comment">//13 : PRINT &quot;D&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">14</span>:<span class="comment">//14 : PRINT &quot;E&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;E&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">15</span>:<span class="comment">//15 : PRINT &quot;F&quot;</span></span><br><span class="line">      	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;F&#x27;</span>;</span><br><span class="line">      	<span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number;</span><br><span class="line">  	<span class="built_in">cin</span> &gt;&gt; number;<span class="comment">//读入num </span></span><br><span class="line">  	<span class="keyword">if</span> (number&lt;<span class="number">0</span>)<span class="comment">//如果num是负数则在输出前加上负号并对把num取反</span></span><br><span class="line">	&#123; </span><br><span class="line">    	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    	number = -number;</span><br><span class="line">  	&#125;</span><br><span class="line">  	transform(number);<span class="comment">//输出16进制的num</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3）使用 -1, 0, 1, 15, 26，3265 最为输入测试你的程序</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>15</td>
+<td>F</td>
+</tr>
+<tr>
+<td>26</td>
+<td>1A</td>
+</tr>
+<tr>
+<td>3265</td>
+<td>CC1</td>
+</tr>
+</tbody></table>
+<p>2、<strong>名词解释与对比</strong><br>1）<strong>Top-down design</strong>:A top-down approach (also known as stepwise design and in some cases used as a synonym of decomposition) is essentially the breaking down of a system to gain insight into its compositional sub-systems in a reverse engineering fashion.<br>2）<strong>Work breakdown structure (WBS)</strong>:A work-breakdown structure (WBS), also referred to as “Contract Work Breakdown Structure ” or “CWBS,” in project management and systems engineering, is a deliverable-oriented breakdown of a project into smaller components.<br>3）简述管理学 WBS 与 信息学Top-down设计 的异同<br>&emsp;&emsp;同：都是将大工作分解为多个小工作解决<br>&emsp;&emsp;异：WBS分解按照类型，Top-down分解是从上到下</p>
+<p>3、<strong>仔细观察您洗衣机的运作过程，运用Top-down设计方法和Pseudocode 描述洗衣机控制程序。假设洗衣机可执行的基本操作如下：</strong></p>
+<blockquote>
+<p>water_in_switch(open_close) // open 打开上水开关，close关闭 water_out_switch(open_close) // open 打开排水开关，close关闭<br>get_water_volume() // 返回洗衣机内部水的高度<br>motor_run(direction) // 电机转动。left左转，right右转，stop停<br>time_counter() // 返回当前时间计数，以秒为单位<br>halt(returncode) // 停机，success 成功 failure 失败</p>
+</blockquote>
+<p>1）请使用伪代码分解“正常洗衣”程序的大步骤。包括注水、浸泡等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入 水位、浸泡时间、漂洗时间、脱水时间</span><br><span class="line">注水至预设水位</span><br><span class="line">浸泡预设时间</span><br><span class="line">漂洗预设时间</span><br><span class="line">每个周期2秒  电机转动左右轮流转动1次 </span><br><span class="line">排水至水位为0</span><br><span class="line">脱水</span><br><span class="line">电机向右转动</span><br><span class="line">停机</span><br></pre></td></tr></table></figure>
+<p>2）进一步用基本操作、控制语句（IF、FOR、WHILE等）、变量与表达式，写出每个步骤的伪代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">READ(water_line,soak_time,rinse_time,dehydration_time)</span><br><span class="line"></span><br><span class="line">WHILE getwatervolume()&lt;water_line</span><br><span class="line">	water_in_switch(open)</span><br><span class="line">END WHILE</span><br><span class="line"></span><br><span class="line">water_in_switch(close)</span><br><span class="line"></span><br><span class="line">SET soak_start_time&#x3D;time_counter()</span><br><span class="line">WHILE time_counter()&lt;&#x3D;start_time+soak_time</span><br><span class="line">	Do nothing</span><br><span class="line">END WHILE</span><br><span class="line"></span><br><span class="line">SET rinse_start_time&#x3D;time_counter()</span><br><span class="line"></span><br><span class="line">WHLILE time_counter()&lt;&#x3D;rinse_start_time+rinse_time</span><br><span class="line">	IF Start&#x3D;&#x3D;0 THEN</span><br><span class="line">		SET start_time&#x3D;time_counter()</span><br><span class="line">	END IF</span><br><span class="line">	motor_run(left)</span><br><span class="line">	IF time_counter()&#x3D;&#x3D;start_time+1 THEN</span><br><span class="line">		motor_run(right)</span><br><span class="line">	ENDIF</span><br><span class="line">	IF time_counter()&#x3D;&#x3D;start_time+2 THEN</span><br><span class="line">		SET Start&#x3D;1</span><br><span class="line">	END IF</span><br><span class="line">END WHILE</span><br><span class="line"></span><br><span class="line">motor_run(stop)</span><br><span class="line"></span><br><span class="line">WHILE get_water_volume()&gt;0</span><br><span class="line">	water_out_switch(open)</span><br><span class="line">END WHILE</span><br><span class="line"></span><br><span class="line">SET dehydration_start_time&#x3D;time_counter()</span><br><span class="line"></span><br><span class="line">WHILE time_counter()&lt;&#x3D;dehydration_start_time+dehydration_time</span><br><span class="line">	motor_run(right)</span><br><span class="line">END WHILE</span><br><span class="line"></span><br><span class="line">motor_run(stop)</span><br><span class="line"></span><br><span class="line">water_out_switch(close)</span><br><span class="line"></span><br><span class="line">halt(success)</span><br></pre></td></tr></table></figure>
+<p>3）根据你的实践，请分析“正常洗衣”与“快速洗衣”在用户目标和程序上的异同。你认为是否存在改进（创新）空间，简单说明你的改进意见？<br>&emsp;&emsp;异：快速洗衣在用户目标上比正常洗衣的浸泡时间、漂洗时间、脱水时间要短<br>&emsp;&emsp;同：洗衣的几个步骤相同<br>&emsp;&emsp;我认为可以改变转机转速以达到加快洗衣的效果<br>4）通过步骤3），提取一些共性功能模块（函数），简化“正常洗衣”程序，使程序变得更利于人类理解和修改维护。例如：</p>
+<blockquote>
+<p>wait(time) //等待指定的时间；<br>注水(volume,timeout) //在指定时间内完成注水，否则停机；<br>排水(timeout)。 等子程序</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">FUNCTION wait(time)</span><br><span class="line">	SET start_time&#x3D;time_counter()</span><br><span class="line">	WHILE time_counter()&lt;&#x3D;start_time+soak_time</span><br><span class="line">	END WHILE</span><br><span class="line">END FUNCTION</span><br><span class="line"></span><br><span class="line">FUNCTION 注水(volume,timeout)</span><br><span class="line">	SET start_time&#x3D;time_counter()</span><br><span class="line">	WHILE get_water_volume()&lt;volume</span><br><span class="line">		water_in_switch(open)</span><br><span class="line">		IF time_counter()&gt;start_time+timeout THEN</span><br><span class="line">			halt(failure)</span><br><span class="line">			REAK</span><br><span class="line">		END IF</span><br><span class="line">	END WHILE</span><br><span class="line">	water_in_switch(close)</span><br><span class="line">END FUNCTION</span><br><span class="line"></span><br><span class="line">FUNCTION 排水(timeout)</span><br><span class="line">	SET start_time&#x3D;timecounter()</span><br><span class="line">	WHILE getwatervolume()&gt;0</span><br><span class="line">		water_out_switch(open)</span><br><span class="line">		IF timecounter()&gt;start_time+timeout THEN</span><br><span class="line">			halt(failure)</span><br><span class="line">			BREAK</span><br><span class="line">		END IF</span><br><span class="line">	END WHILE</span><br><span class="line">	water_out_switch(close)</span><br><span class="line">END FUNCTION</span><br></pre></td></tr></table></figure>
+<p>4、<strong>阅读“牧师与恶魔过河”（<a target="_blank" rel="noopener" href="http://www.17yy.com/f/69854.html">http://www.17yy.com/f/69854.html</a>）的游戏介绍并玩游戏。然后回答问题</strong><br>1）游戏涉及哪些类。请列表说明<br>&emsp;&emsp;人物  环境<br>2）游戏中有哪些对象，各几个。例如，船（一个）<br>&emsp;&emsp;牧师（三个） 恶魔（三个） 岸（两边） 船（一艘） 座位（两个）<br>3）类和对象的区别是什么？举一个例子说明<br>&emsp;&emsp;类是对象的抽象；对象是类的实例。比如类是肉 那么牛肉是类的一个实例<br>4）游戏中的魔鬼，有哪些属性和方法？<br>&emsp;&emsp;属性：在哪个岸  是否在船上<br>&emsp;&emsp;方法：进船 上岸 杀牧师<br>5）假设魔鬼被鼠标点中，会执行onclick事件，请用文字（伪代码）描述这个事件中魔鬼与其他对象沟通的过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Onclick</span><br><span class="line">    IF (魔鬼在岸上并且船没满）THEN</span><br><span class="line">		（魔鬼进船）</span><br><span class="line">	END IF</span><br><span class="line">    ELSE IF (魔鬼在船上) THEN</span><br><span class="line">		（魔鬼上岸）</span><br><span class="line">	END ELSE IF</span><br><span class="line">END Onclick</span><br></pre></td></tr></table></figure>
+<p>6）类或对象会是动词吗？<br>&emsp;&emsp;会</p>
+<p>08 Nov 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-08-homework8/" data-id="cktplqvmr000f3gv59wncea0x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-12-homework9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第九次作业
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-05-homework7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第七次作业</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-31-construct10/">项目10（互联网时代的热点领域选择、营销方法）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-28-construct9/">项目9（智能蛇）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-20-construct8/">项目8（贪吃蛇）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/">项目7（IT的伦理与道德）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/">项目5（洗衣机）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 殷轲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -5,17 +5,17 @@
   
 
   
-  <title>Hello World | 殷轲的博客</title>
+  <title>项目6（Python 交互式编程） | 殷轲的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="项目6（Python 交互式编程）解三元一次方程组3x1+x2−2x3&#x3D;5x1−x2+4x3&#x3D;−22x1+3x3&#x3D;2.5 12345678910import numpyfrom scipy.linalg import solve#输出系数矩阵a&#x3D;numpy.array([[3,1,-2],[1,-1,4],[2,0,3]])#值b&#x3D;numpy.array([5,-2,2.5])">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2020/10/01/hello-world/index.html">
+<meta property="og:title" content="项目6（Python 交互式编程）">
+<meta property="og:url" content="http://example.com/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-26-construct6/index.html">
 <meta property="og:site_name" content="殷轲的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="项目6（Python 交互式编程）解三元一次方程组3x1+x2−2x3&#x3D;5x1−x2+4x3&#x3D;−22x1+3x3&#x3D;2.5 12345678910import numpyfrom scipy.linalg import solve#输出系数矩阵a&#x3D;numpy.array([[3,1,-2],[1,-1,4],[2,0,3]])#值b&#x3D;numpy.array([5,-2,2.5])">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-01T10:05:04.407Z">
-<meta property="article:modified_time" content="2020-10-01T10:05:04.408Z">
+<meta property="article:published_time" content="2020-12-08T06:32:21.840Z">
+<meta property="article:modified_time" content="2021-09-18T05:23:49.644Z">
 <meta property="article:author" content="殷轲">
 <meta name="twitter:card" content="summary">
   
@@ -66,12 +66,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-软件工程导论/2020-11-26-construct6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/10/01/hello-world/" class="article-date">
-  <time datetime="2020-10-01T10:05:04.407Z" itemprop="datePublished">2020-10-01</time>
+    <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-26-construct6/" class="article-date">
+  <time datetime="2020-12-08T06:32:21.840Z" itemprop="datePublished">2020-12-08</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -80,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      项目6（Python 交互式编程）
     </h1>
   
 
@@ -88,24 +92,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="项目6（Python-交互式编程）"><a href="#项目6（Python-交互式编程）" class="headerlink" title="项目6（Python 交互式编程）"></a>项目6（Python 交互式编程）</h2><p><strong>解三元一次方程组</strong><br>3x<sub>1</sub>+x<sub>2</sub>−2x<sub>3</sub>=5<br>x<sub>1</sub>−x<sub>2</sub>+4x<sub>3</sub>=−2<br>2x<sub>1</sub>+3x<sub>3</sub>=2.5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">from scipy.linalg import solve</span><br><span class="line">#输出系数矩阵</span><br><span class="line">a&#x3D;numpy.array([[3,1,-2],[1,-1,4],[2,0,3]])</span><br><span class="line">#值</span><br><span class="line">b&#x3D;numpy.array([5,-2,2.5])</span><br><span class="line">#计算</span><br><span class="line">x&#x3D;solve(a,b)</span><br><span class="line">#打印结果</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>输出[0.5 4.5 0.5]</p>
+<p><strong>化简</strong><br>sin(x)^2 + cos(x)^2<br>(x^3 + x^2 - x - 1)/(x^2 + 2x + 1)<br>gamma(x)/gamma(x - 2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from sympy import *</span><br><span class="line">simplify(sin(x)**2 + cos(x)**2)</span><br><span class="line">simplify((x**3 + x**2 - x - 1)&#x2F;(x**2 + 2*x + 1))</span><br><span class="line">simplify(gamma(x)&#x2F;gamma(x - 2))</span><br></pre></td></tr></table></figure>
+<p>输出1<br>&emsp;x-1<br>&emsp;(x - 2)*(x - 1)</p>
+<p><strong>求逆矩阵</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line">a1 &#x3D; mat([[3,4],[2,16]])</span><br><span class="line">a2 &#x3D; a1.I</span><br><span class="line">print(a2)</span><br></pre></td></tr></table></figure>
+<p>输出[[ 0.4   -0.1  ]<br>&emsp;[-0.05   0.075]]</p>
+<p>26 Nov 2020</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/01/hello-world/" data-id="ckfqolqkd000354v5brub1rom" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-26-construct6/" data-id="cktplqvmu000l3gv53fwb08eg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -114,15 +115,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/10/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-09-21-homework2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          第二次作业（翻译）
+          项目5（洗衣机）
         
       </div>
     </a>
   
+  
+    <a href="/2020/11/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-12-homework9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第九次作业</div>
+    </a>
   
 </nav>
 
