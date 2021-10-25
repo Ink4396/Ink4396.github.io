@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-软件工程导论/2020-11-12-homework9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-12-homework9/" class="article-date">
+  <time datetime="2020-11-19T06:12:46.258Z" itemprop="datePublished">2020-11-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-12-homework9/">第九次作业</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第九次作业"><a href="#第九次作业" class="headerlink" title="第九次作业"></a>第九次作业</h2><p><strong>1. Bubble Sort the list: 33, 56, 17, 8, 95, 22。Make sure the final result is from small to large.</strong><br>&emsp;<strong>Write out the list after the 2nd pass. (10 points)</strong><br>(1)33, 56, 17, 8, 95, 22  （初始）<br>(2)33, 17, 8, 56, 22, 95  （第一次）<br>(3)17, 8, 33, 22, 56, 95  （第二次）</p>
+<p><strong>2. Give a sorted array as list={60,65,75,80,90,95}. Design an algorithm to insert the value of x into the sorted array. Then test the algorithm with value 50,67,99.</strong><br>&emsp;<strong>思考：为什么选择插入点在list头上、中间、尾巴上的三个数作为算法测试的数据，你能解释吗？</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 100</span></span><br><span class="line"><span class="built_in">list</span>[SIZE]=&#123;<span class="number">60</span>,<span class="number">65</span>,<span class="number">75</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">95</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shift</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>,size=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		size++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=size<span class="number">-1</span>;i&gt;=n;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">list</span>[i+<span class="number">1</span>]=<span class="built_in">list</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>,size=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		size++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;<span class="built_in">list</span>[i]&amp;&amp;i&lt;size)</span><br><span class="line">	&#123;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	shift(i);</span><br><span class="line">	<span class="built_in">list</span>[i]=x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x,i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,<span class="built_in">list</span>[i]);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	i=<span class="number">0</span>;</span><br><span class="line">	insert(<span class="number">50</span>);</span><br><span class="line">	insert(<span class="number">67</span>);</span><br><span class="line">	insert(<span class="number">99</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">list</span>[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,<span class="built_in">list</span>[i]);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选择插入点在list头上、中间、尾巴上的三个数作为算法测试的数据是因为头上没有前一个数，中间有前后两个数，尾巴上没有后一个数，比较前后大小时考虑的方式不同</p>
+<p><strong>3. What is the state of the stack after the following sequence of Push and Pop operations?</strong><br>&emsp;<strong>Push “anne”; Push “get”; Push “your” ; Pop; Push “my” Push “gun”</strong><br>&emsp;gun<br>&emsp;my<br>&emsp;get<br>&emsp;anne</p>
+<p>12 Nov 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-12-homework9/" data-id="cktplqvmt000j3gv58dhx9bwb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-软件工程导论/2020-11-08-homework8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-08-homework8/" class="article-date">
@@ -741,49 +787,6 @@
 
 
   
-    <article id="post-软件工程导论/2020-09-21-homework2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-09-21-homework2/" class="article-date">
-  <time datetime="2020-10-01T10:31:42.161Z" itemprop="datePublished">2020-10-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-09-21-homework2/">第二次作业（翻译）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第二次作业（翻译）"><a href="#第二次作业（翻译）" class="headerlink" title="第二次作业（翻译）"></a>第二次作业（翻译）</h2><p>&emsp;&emsp;1.<strong>Information:</strong> Information can be thought of as the resolution of uncertainty; it is that which answers the question of “What an entity is” and thus defines both its essence and nature of its characteristics.<br>&emsp;&emsp;2.<strong>Positional notation:</strong> Positional notation (or place-value notation, or positional numeral system) denotes usually the extension to any base of the Hindu–Arabic numeral system (or decimal system).<br>&emsp;&emsp;3.<strong>Algorithm:</strong> In mathematics and computer science, an algorithm is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation.<br>&emsp;&emsp;4.<strong>Software bug:</strong> A software bug is an error, flaw or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.</p>
-<p>&emsp;&emsp;5.<strong>十进制:</strong> decimal system<br>&emsp;&emsp;6.<strong>二进制:</strong> Binary<br>&emsp;&emsp;7.<strong>八进制:</strong> octal number system<br>&emsp;&emsp;8.<strong>十六进制:</strong> hexadecimal  </p>
-<p>21 Sep 2020</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-09-21-homework2/" data-id="cktplqvmj00013gv54fxn3uv8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -827,6 +830,10 @@
       <ul>
         
           <li>
+            <a href="/2021/10/25/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-25-homework4/">与游戏世界交互&amp;物理系统与碰撞-作业4</a>
+          </li>
+        
+          <li>
             <a href="/2021/10/16/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-16-homework3/">游戏对象与图形基础-作业3</a>
           </li>
         
@@ -840,10 +847,6 @@
         
           <li>
             <a href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-31-construct10/">项目10（互联网时代的热点领域选择、营销方法）</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-28-construct9/">项目9（智能蛇）</a>
           </li>
         
       </ul>
