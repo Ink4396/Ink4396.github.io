@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>UI系统-作业6 | 殷轲的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UI系统-作业6血条项目要求血条（Health Bar）的预制设计。具体要求如下  分别使用 IMGUI 和 UGUI 实现 使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机 分析两种实现的优缺点 给出预制的使用方法  演示视频   HealthBar.cs123456789101112131415161718192021using System.Collections;usi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UI系统-作业6">
+<meta property="og:url" content="http://example.com/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/index.html">
+<meta property="og:site_name" content="殷轲的博客">
+<meta property="og:description" content="UI系统-作业6血条项目要求血条（Health Bar）的预制设计。具体要求如下  分别使用 IMGUI 和 UGUI 实现 使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机 分析两种实现的优缺点 给出预制的使用方法  演示视频   HealthBar.cs123456789101112131415161718192021using System.Collections;usi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-27T06:39:12.556Z">
+<meta property="article:modified_time" content="2021-12-27T07:11:53.869Z">
+<meta property="article:author" content="殷轲">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="殷轲的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">殷轲的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-3D游戏编程/2021-12-27-homework6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/" class="article-date">
+  <time datetime="2021-12-27T06:39:12.556Z" itemprop="datePublished">2021-12-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UI系统-作业6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="UI系统-作业6"><a href="#UI系统-作业6" class="headerlink" title="UI系统-作业6"></a>UI系统-作业6</h2><h2 id="血条"><a href="#血条" class="headerlink" title="血条"></a><strong>血条</strong></h2><h3 id="项目要求"><a href="#项目要求" class="headerlink" title="项目要求"></a><strong>项目要求</strong></h3><p>血条（Health Bar）的预制设计。具体要求如下</p>
+<ul>
+<li>分别使用 IMGUI 和 UGUI 实现</li>
+<li>使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机</li>
+<li>分析两种实现的优缺点</li>
+<li>给出预制的使用方法</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://v.youku.com/v_show/id_XNTgyOTc3NjA0OA==.html">演示视频</a></p>
+<iframe height=498 width=510 src='https://player.youku.com/embed/XNTgyOTc3NjA0OA==' frameborder=0 'allowfullscreen'></iframe>
+
+<h5 id="HealthBar-cs"><a href="#HealthBar-cs" class="headerlink" title="HealthBar.cs"></a>HealthBar.cs</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HealthBar</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> health = <span class="number">0.5f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//初步计算血条位置</span></span><br><span class="line">        Vector3 worldPos = <span class="keyword">new</span> Vector3(transform.position.x, transform.position.y - <span class="number">0.2f</span>, transform.position.z);</span><br><span class="line">        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);</span><br><span class="line">        <span class="comment">//计算血条大小比例</span></span><br><span class="line">        <span class="keyword">float</span> distance = (transform.position.z - Camera.main.transform.position.z - <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">float</span> newScale = (distance &lt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">1</span> / (<span class="number">1</span> + distance)) * <span class="number">0.5f</span>;</span><br><span class="line">        <span class="comment">//生产HorizontalScrollbar并设置颜色</span></span><br><span class="line">        GUI.color = Color.red;</span><br><span class="line">        GUI.HorizontalScrollbar(<span class="keyword">new</span> Rect(<span class="keyword">new</span> Rect(screenPos.x - <span class="number">100</span> * newScale, screenPos.y, <span class="number">200</span> * newScale, <span class="number">20</span> * newScale)), <span class="number">0.0f</span>, health, <span class="number">0.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="UGUI-World-Place实现"><a href="#UGUI-World-Place实现" class="headerlink" title="UGUI World Place实现"></a>UGUI World Place实现</h4><p><a target="_blank" rel="noopener" href="http://172.18.178.120/game-unity/post/09-ui/">参考潘老师博客</a></p>
+<pre><code>菜单 Assets -&gt; Import Package -&gt; Characters 导入资源
+在层次视图，Context 菜单 -&gt; 3D Object -&gt; Plane 添加 Plane 对象
+资源视图展开 Standard Assets :: Charactors :: ThirdPersonCharater :: Prefab
+将 MobileMaleFree1 预制拖放放入场景
+检查以下属性
+Plane 的 Transform 的 Position = (0,0,0)
+MobileMaleFree1 的 Transform 的 Position = (0,0,0)
+Main Camera 的 Transform 的 Position = (0,1,-10)
+运行检查效果
+选择 MobileMaleFree1 用上下文菜单 -&gt; UI -&gt; Canvas, 添加画布子对象
+选择 MobileMaleFree1 的 Canvas，用上下文菜单 -&gt; UI -&gt; Slider 添加滑条作为血条子对象
+运行检查效果
+选择 MobileMaleFree1 的 Canvas，在 Inspector 视图
+设置 Canvas 组件 Render Mode 为 World Space
+设置 Rect Transform 组件 (PosX，PosY，Width， Height) 为 (0,1.3,160,20)
+设置 Rect Transform 组件 Scale （x,y） 为 (0.01,0.01)
+运行检查效果，应该是头顶 Slider 的 MobileMaleFree1，用键盘移动 MobileMaleFree1，观察
+展开 Slider
+选择 Handle Slider Area，禁灰（disable）该元素
+选择 Background，禁灰（disable）该元素
+选择 Fill Area 的 Fill，修改 Image 组件的 Color 为 红色
+选择 Slider 的 Slider 组件
+设置 MaxValue 为 100
+设置 Value 为 100</code></pre>
+<h4 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h4><p>IMGUI<br>优点:</p>
+<pre><code>使用方便，上手容易
+没有状态，维护方便</code></pre>
+<p>缺点:</p>
+<pre><code>每次都需要重新生成所有组件
+没有状态，配置不够灵活，实现运动、动画等比较麻烦</code></pre>
+<p>UGUI<br>优点:</p>
+<pre><code>拥有UI状态，可以比较方便的修改其属性或进行其他操作(运动等)
+可以通过锚点方便的调整位置
+每次生命周期不需要重复遍历一次UI组件，效率较高</code></pre>
+<p>缺点:</p>
+<pre><code>使用繁琐、不同的功能需要设置不同的canvas，并单独配置</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20549085/article/details/103198691">参考博客</a></p>
+<p>27 Dec 2021</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/" data-id="ckxochazq0000dcv5h20whc1t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/12/02/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-02-homework5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">模型与动画-作业5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/">UI系统-作业6</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/02/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-02-homework5/">模型与动画-作业5</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/25/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-25-homework4/">与游戏世界交互&amp;物理系统与碰撞-作业4</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/16/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-16-homework3/">游戏对象与图形基础-作业3</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/06/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-06-homework2/">游戏对象与图形基础-作业2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 殷轲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

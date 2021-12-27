@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-软件工程导论/2020-11-16-construct5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/" class="article-date">
+  <time datetime="2020-12-08T07:19:32.087Z" itemprop="datePublished">2020-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/">项目5（洗衣机）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="项目5（洗衣机）"><a href="#项目5（洗衣机）" class="headerlink" title="项目5（洗衣机）"></a>项目5（洗衣机）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1）Begin</span><br><span class="line">选择洗衣模式：对应水位，注水时间</span><br><span class="line">Then注水， 水位计计水位</span><br><span class="line">Then浸泡， 计时器计时</span><br><span class="line">Then电机转动, 左转，右转</span><br><span class="line">Then排水， 水位计计水位</span><br><span class="line">Then电机转动（脱水）</span><br><span class="line">End</span><br><span class="line">2）</span><br><span class="line">READ 用户选择模式</span><br><span class="line">打开上水开关</span><br><span class="line">UNTILL 水位&#x3D;注水要求</span><br><span class="line">浸泡</span><br><span class="line">UNTILL 时间 &#x3D; 时间要求</span><br><span class="line">WHILE(电机启动时间&gt;0)</span><br><span class="line">电机转动</span><br><span class="line">左转</span><br><span class="line">右转</span><br><span class="line">时间-1</span><br><span class="line">ENDWHILE</span><br><span class="line">WHILE(水位不等于0)</span><br><span class="line">打开排水开关</span><br><span class="line">ENDWHILE</span><br><span class="line">FOR（脱水时间&gt;0）</span><br><span class="line">电机转动</span><br><span class="line">ENDFOR</span><br><span class="line">停机</span><br></pre></td></tr></table></figure>
+<p>16 Nov 2020</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/" data-id="cktplqvms000h3gv59dhx0k2k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-软件工程导论/2020-11-26-construct6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-26-construct6/" class="article-date">
@@ -753,48 +795,6 @@
 
 
   
-    <article id="post-软件工程导论/2020-10-05-construct2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/05/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-10-05-construct2/" class="article-date">
-  <time datetime="2020-10-05T12:54:09.339Z" itemprop="datePublished">2020-10-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/05/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-10-05-construct2/">项目2（construct2）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目2（construct2）"><a href="#项目2（construct2）" class="headerlink" title="项目2（construct2）"></a>项目2（construct2）</h2><p>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://www.construct.net/en/free-online-games/homework-18283/play">https://www.construct.net/en/free-online-games/homework-18283/play</a></p>
-<p>05 Oct 2020</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/05/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-10-05-construct2/" data-id="cktplqvmk00023gv5b1drf58q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -838,6 +838,10 @@
       <ul>
         
           <li>
+            <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/">UI系统-作业6</a>
+          </li>
+        
+          <li>
             <a href="/2021/12/02/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-02-homework5/">模型与动画-作业5</a>
           </li>
         
@@ -851,10 +855,6 @@
         
           <li>
             <a href="/2021/10/06/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-06-homework2/">游戏对象与图形基础-作业2</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/">离散仿真引擎基础-作业1</a>
           </li>
         
       </ul>

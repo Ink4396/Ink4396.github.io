@@ -64,6 +64,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-3D游戏编程/2021-12-27-homework6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/" class="article-date">
+  <time datetime="2021-12-27T06:39:12.556Z" itemprop="datePublished">2021-12-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/">UI系统-作业6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="UI系统-作业6"><a href="#UI系统-作业6" class="headerlink" title="UI系统-作业6"></a>UI系统-作业6</h2><h2 id="血条"><a href="#血条" class="headerlink" title="血条"></a><strong>血条</strong></h2><h3 id="项目要求"><a href="#项目要求" class="headerlink" title="项目要求"></a><strong>项目要求</strong></h3><p>血条（Health Bar）的预制设计。具体要求如下</p>
+<ul>
+<li>分别使用 IMGUI 和 UGUI 实现</li>
+<li>使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机</li>
+<li>分析两种实现的优缺点</li>
+<li>给出预制的使用方法</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://v.youku.com/v_show/id_XNTgyOTc3NjA0OA==.html">演示视频</a></p>
+<iframe height=498 width=510 src='https://player.youku.com/embed/XNTgyOTc3NjA0OA==' frameborder=0 'allowfullscreen'></iframe>
+
+<h5 id="HealthBar-cs"><a href="#HealthBar-cs" class="headerlink" title="HealthBar.cs"></a>HealthBar.cs</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HealthBar</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> health = <span class="number">0.5f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//初步计算血条位置</span></span><br><span class="line">        Vector3 worldPos = <span class="keyword">new</span> Vector3(transform.position.x, transform.position.y - <span class="number">0.2f</span>, transform.position.z);</span><br><span class="line">        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);</span><br><span class="line">        <span class="comment">//计算血条大小比例</span></span><br><span class="line">        <span class="keyword">float</span> distance = (transform.position.z - Camera.main.transform.position.z - <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">float</span> newScale = (distance &lt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">1</span> / (<span class="number">1</span> + distance)) * <span class="number">0.5f</span>;</span><br><span class="line">        <span class="comment">//生产HorizontalScrollbar并设置颜色</span></span><br><span class="line">        GUI.color = Color.red;</span><br><span class="line">        GUI.HorizontalScrollbar(<span class="keyword">new</span> Rect(<span class="keyword">new</span> Rect(screenPos.x - <span class="number">100</span> * newScale, screenPos.y, <span class="number">200</span> * newScale, <span class="number">20</span> * newScale)), <span class="number">0.0f</span>, health, <span class="number">0.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="UGUI-World-Place实现"><a href="#UGUI-World-Place实现" class="headerlink" title="UGUI World Place实现"></a>UGUI World Place实现</h4><p><a target="_blank" rel="noopener" href="http://172.18.178.120/game-unity/post/09-ui/">参考潘老师博客</a></p>
+<pre><code>菜单 Assets -&gt; Import Package -&gt; Characters 导入资源
+在层次视图，Context 菜单 -&gt; 3D Object -&gt; Plane 添加 Plane 对象
+资源视图展开 Standard Assets :: Charactors :: ThirdPersonCharater :: Prefab
+将 MobileMaleFree1 预制拖放放入场景
+检查以下属性
+Plane 的 Transform 的 Position = (0,0,0)
+MobileMaleFree1 的 Transform 的 Position = (0,0,0)
+Main Camera 的 Transform 的 Position = (0,1,-10)
+运行检查效果
+选择 MobileMaleFree1 用上下文菜单 -&gt; UI -&gt; Canvas, 添加画布子对象
+选择 MobileMaleFree1 的 Canvas，用上下文菜单 -&gt; UI -&gt; Slider 添加滑条作为血条子对象
+运行检查效果
+选择 MobileMaleFree1 的 Canvas，在 Inspector 视图
+设置 Canvas 组件 Render Mode 为 World Space
+设置 Rect Transform 组件 (PosX，PosY，Width， Height) 为 (0,1.3,160,20)
+设置 Rect Transform 组件 Scale （x,y） 为 (0.01,0.01)
+运行检查效果，应该是头顶 Slider 的 MobileMaleFree1，用键盘移动 MobileMaleFree1，观察
+展开 Slider
+选择 Handle Slider Area，禁灰（disable）该元素
+选择 Background，禁灰（disable）该元素
+选择 Fill Area 的 Fill，修改 Image 组件的 Color 为 红色
+选择 Slider 的 Slider 组件
+设置 MaxValue 为 100
+设置 Value 为 100</code></pre>
+<h4 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h4><p>IMGUI<br>优点:</p>
+<pre><code>使用方便，上手容易
+没有状态，维护方便</code></pre>
+<p>缺点:</p>
+<pre><code>每次都需要重新生成所有组件
+没有状态，配置不够灵活，实现运动、动画等比较麻烦</code></pre>
+<p>UGUI<br>优点:</p>
+<pre><code>拥有UI状态，可以比较方便的修改其属性或进行其他操作(运动等)
+可以通过锚点方便的调整位置
+每次生命周期不需要重复遍历一次UI组件，效率较高</code></pre>
+<p>缺点:</p>
+<pre><code>使用繁琐、不同的功能需要设置不同的canvas，并单独配置</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20549085/article/details/103198691">参考博客</a></p>
+<p>27 Dec 2021</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/" data-id="ckxochazq0000dcv5h20whc1t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-3D游戏编程/2021-12-02-homework5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/12/02/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-02-homework5/" class="article-date">
@@ -738,48 +829,6 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
 
 
   
-    <article id="post-软件工程导论/2020-11-16-construct5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/" class="article-date">
-  <time datetime="2020-12-08T07:19:32.087Z" itemprop="datePublished">2020-12-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/">项目5（洗衣机）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目5（洗衣机）"><a href="#项目5（洗衣机）" class="headerlink" title="项目5（洗衣机）"></a>项目5（洗衣机）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1）Begin</span><br><span class="line">选择洗衣模式：对应水位，注水时间</span><br><span class="line">Then注水， 水位计计水位</span><br><span class="line">Then浸泡， 计时器计时</span><br><span class="line">Then电机转动, 左转，右转</span><br><span class="line">Then排水， 水位计计水位</span><br><span class="line">Then电机转动（脱水）</span><br><span class="line">End</span><br><span class="line">2）</span><br><span class="line">READ 用户选择模式</span><br><span class="line">打开上水开关</span><br><span class="line">UNTILL 水位&#x3D;注水要求</span><br><span class="line">浸泡</span><br><span class="line">UNTILL 时间 &#x3D; 时间要求</span><br><span class="line">WHILE(电机启动时间&gt;0)</span><br><span class="line">电机转动</span><br><span class="line">左转</span><br><span class="line">右转</span><br><span class="line">时间-1</span><br><span class="line">ENDWHILE</span><br><span class="line">WHILE(水位不等于0)</span><br><span class="line">打开排水开关</span><br><span class="line">ENDWHILE</span><br><span class="line">FOR（脱水时间&gt;0）</span><br><span class="line">电机转动</span><br><span class="line">ENDFOR</span><br><span class="line">停机</span><br></pre></td></tr></table></figure>
-<p>16 Nov 2020</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/08/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-11-16-construct5/" data-id="cktplqvms000h3gv59dhx0k2k" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -823,6 +872,10 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
       <ul>
         
           <li>
+            <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/">UI系统-作业6</a>
+          </li>
+        
+          <li>
             <a href="/2021/12/02/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-02-homework5/">模型与动画-作业5</a>
           </li>
         
@@ -836,10 +889,6 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
         
           <li>
             <a href="/2021/10/06/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-06-homework2/">游戏对象与图形基础-作业2</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/18/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-09-18-homework1/">离散仿真引擎基础-作业1</a>
           </li>
         
       </ul>
