@@ -64,6 +64,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-毕业设计_中文文本纠错/2023-02-25-report" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/" class="article-date">
+  <time datetime="2023-02-25T04:08:21.946Z" itemprop="datePublished">2023-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/">毕业设计_中文文本纠错</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/">中文文本纠错论文复现中期报告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="中文文本纠错论文复现中期报告"><a href="#中文文本纠错论文复现中期报告" class="headerlink" title="中文文本纠错论文复现中期报告"></a>中文文本纠错论文复现中期报告</h2><p>原论文链接：<a target="_blank" rel="noopener" href="https://aclanthology.org/2022.findings-acl.98.pdf">https://aclanthology.org/2022.findings-acl.98.pdf</a></p>
+<h3 id="1、原论文亮点分析"><a href="#1、原论文亮点分析" class="headerlink" title="1、原论文亮点分析"></a>1、原论文亮点分析</h3><p>1.<img src="./img/1.png"></p>
+<pre><code>其中(a)(b)是以前的模型，(c)是作者论文中提出的模型</code></pre>
+<p>在纠错网络的预测层加入了<code>Detection Module</code>的<code>Hidden States</code>，用<code>Detection Module</code>输出的向量和<code>Correction Module</code>输出的向量进行融合，然后再去做预测。保留了原有错字信息使得预测的结果更加准确。例如：input为<strong>你痴了吗</strong>，(b)中的mask input会变为<strong>你[MASK]了吗</strong>，此时可能会修正为<strong>你<code>渴</code>了吗</strong>、<strong>你<code>饿</code>了吗</strong>等等，但如果像(c)中同时向纠错网络中加入<code>痴</code>这个原文本中的错误信息，就更会倾向于修正为<strong>你<code>吃</code>了吗</strong></p>
+<p>2.使用<code>word_embedding</code>来初始化Correction Network的<code>Dense Layer</code>（全连接层）的参数。因为<code>Dense Layer</code>输入通道为词向量维度，输出通道为词典大小，<code>word Embedding</code>是将词index转成词向量，所以其参数刚好是<code>Dense Layer</code>的转置，使得模型可以更快更稳定的收敛。</p>
+<p>3.<img src="./img/2.png"></p>
+<p>使用BERT的weights参数来为Detection Network的Transformer参数初始化，如上图所示，作者指出使用BERT的权重为其初始化时，设置transformer为任意层数，总是可以让Detection Network可以更快更稳定的学习。</p>
+<h3 id="2、论文亮点部分复现代码"><a href="#2、论文亮点部分复现代码" class="headerlink" title="2、论文亮点部分复现代码"></a>2、论文亮点部分复现代码</h3><p><img src="./img/3.png"></p>
+<p>Correction Network</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, inputs, word_embeddings, detect_hidden_states</span>):</span></span><br><span class="line">    <span class="comment"># 1. 使用bert进行前向传递</span></span><br><span class="line">    bert_outputs = self.bert(token_type_ids=inputs[<span class="string">&#x27;token_type_ids&#x27;</span>],</span><br><span class="line">                             attention_mask=inputs[<span class="string">&#x27;attention_mask&#x27;</span>],</span><br><span class="line">                             inputs_embeds=word_embeddings)</span><br><span class="line">    <span class="comment"># 2. 将bert的hidden_state和Detection Network的hidden state进行融合。</span></span><br><span class="line">    hidden_states = bert_outputs[<span class="string">&#x27;last_hidden_state&#x27;</span>] + detect_hidden_states</span><br><span class="line">    <span class="comment"># 3. 最终使用全连接层进行token预测</span></span><br><span class="line">    <span class="keyword">return</span> self.dense_layer(hidden_states)</span><br></pre></td></tr></table></figure>
+
+<p>Detection Network</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, word_embeddings</span>):</span></span><br><span class="line">    <span class="comment"># 获取token序列的长度</span></span><br><span class="line">    sequence_length = word_embeddings.size(<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 生成position_embedding</span></span><br><span class="line">    position_embeddings = self.position_embeddings(torch.LongTensor(range(sequence_length)).to(device))</span><br><span class="line">    <span class="comment"># 融合work_embedding和position_embedding</span></span><br><span class="line">    x = word_embeddings + position_embeddings</span><br><span class="line">    <span class="comment"># 将x一层一层的使用transformer encoder进行向后传递</span></span><br><span class="line">    <span class="keyword">for</span> transformer_layer <span class="keyword">in</span> self.transformer_blocks:</span><br><span class="line">        x = transformer_layer(x)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 最终返回Detection Network输出的hidden states和预测结果</span></span><br><span class="line">    hidden_states = x</span><br><span class="line">    <span class="keyword">return</span> hidden_states, self.dense_layer(hidden_states)</span><br></pre></td></tr></table></figure>
+
+<p>模型训练forward()方法中设置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先获取word embedding，Correction Network和Detection Network都要用</span></span><br><span class="line">   inputs, word_embeddings = self.correction_network.get_inputs_and_word_embeddings(sequences, max_length)    </span><br><span class="line"><span class="comment"># Detection Network进行前向传递，获取输出的Hidden State和预测结果</span></span><br><span class="line">   hidden_states, detection_outputs = self.detection_network(word_embeddings)</span><br><span class="line">   <span class="comment"># Correction Network进行前向传递，获取其预测结果</span></span><br><span class="line">   correction_outputs = self.correction_network(inputs, word_embeddings, hidden_states)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>使用哈工大讯飞联合实验室的中文BERT-wwm模型</p>
+<p>模型链接：<a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-roberta-wwm-ext">https://huggingface.co/hfl/chinese-roberta-wwm-ext</a></p>
+<pre><code>由于谷歌官方发布的BERT-base, Chinese中，中文是以字为粒度进行切分，没有考虑到传统NLP中的中文分词（CWS）。 BERT-Whole Word Masking (wwm)将全词Mask的方法应用在了中文中，使用了中文维基百科（包括简体和繁体）进行训练，并且使用了哈工大LTP作为分词工具，即对组成同一个词的汉字全部进行Mask。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/" data-id="clejt3brd0000hgv5bld6epzx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-3D游戏编程/2021-12-27-homework6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/" class="article-date">
@@ -766,69 +832,6 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
 
 
   
-    <article id="post-软件工程导论/2020-12-10-construct7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/" class="article-date">
-  <time datetime="2020-12-10T07:21:38.049Z" itemprop="datePublished">2020-12-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/">项目7（IT的伦理与道德）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目7（IT的伦理与道德）"><a href="#项目7（IT的伦理与道德）" class="headerlink" title="项目7（IT的伦理与道德）"></a>项目7（IT的伦理与道德）</h2><p><strong>关于谷歌(Google)的一些伦理风险行为</strong><br>「不作恶」（Don’t be evil）是 Google 公司著名的口号，这让人在潜意识里对这家超级公司的产品总是多一分信任。在当今互联网尤其是中文互联网的语境下，相比于百度等其他搜索引擎，Google 似乎代表着「靠谱」「可信」。</p>
-<img src="/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/1.jpg" class="">
-<p>在这篇博客中，将主要介绍谷歌的一些伦理风险行为。</p>
-<p><strong>为假药做广告</strong></p>
-<blockquote>
-<p>谷歌的广告部门为了利润，主动帮助卖假药者规避其公司的合规审查，使得大量假药、走私处方药、非法药物（如类固醇）广告网页长时间充斥其搜索结果。本案由FBI调查，于几年前和解，谷歌被罚款5亿美元。<br>概括来说，就是一个叫惠特克的卖假药的骗子被捕后，为了减刑，提供了谷歌公司收了自己大笔广告费给自己的假药打广告的情报。最终联邦情报局探员证实，谷歌的广告部门确实有专员指导假药商如何绕过算法的限制，将自己的商品被推到相关关键词的搜索界面上。最终，在2011年8月，谷歌与政府达成和解，谷歌公司被处罚五亿美元。</p>
-</blockquote>
-<p>链接:<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19656857/answer/23181810">Google 真的「不作恶」吗？ - X Zima的回答 - 知乎</a><br>然而此次事件过后，谷歌似乎仍未完全禁止非法药物投放的广告。据新浪科技报道，2013年6月，全美检察官协会（National Association of Attorneys General）联合主席吉姆•胡德（Jim Hood）向谷歌提出指控，称其仍允许贩卖非法、假冒药物的网上药店投放广告</p>
-<blockquote>
-<p>胡德表示：「我们每次对谷歌的搜索引擎进行检测，都不难找到非法商品，包话经营非处方危险药物及各类假冒商品的网站。这表示谷歌纵容非法行为，置消费者于危险境地，并且从中获利。」</p>
-</blockquote>
-<p><strong>搜集泄露用户隐私</strong></p>
-<blockquote>
-<p>德国监管当局对Google的街景拍摄车的审计迫使这个信息巨人承认他们的雇员“不小心”（accidentally）在30个国家驱车通过那些未加密的 wifi网络时抓取了大约600G的个 人数据（大约3年时间），“这些街景拍摄车的天线收集的数据包括：电子邮件的片段、文字和图片，甚至某人正在访问什么网站”(每 日电讯报道)。</p>
-</blockquote>
-<p>链接:<a target="_blank" rel="noopener" href="https://www.cnbeta.com/articles/tech/111274.htm">Google新口号：作恶但别被抓住？</a></p>
-<p><strong>干预政治</strong></p>
-<blockquote>
-<p>名为SourceFed的独立媒体6月9日爆料称，将“Donotbeevil（不作恶）”作为口号的谷歌涉嫌与美国民主党总统候选人希拉里·克林顿（HillaryClinton）的政党、财团勾结，操纵搜索结果，让人们只看得到她的正面报道。</p>
-</blockquote>
-<img src="/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/2.jpg" class="">
-<p>链接:<a target="_blank" rel="noopener" href="http://tech.sina.com.cn/it/2016-06-13/doc-ifxszmaa1924035.shtml">谷歌有没有为了希拉里而“作恶”</a></p>
-<p>10 Dec 2020</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/2020-12-10-construct7/" data-id="cktplqvmv000n3gv5bi1z11sl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -844,7 +847,7 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/">毕业设计_中文文本纠错</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
     </div>
   </div>
 
@@ -859,7 +862,7 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
     </div>
   </div>
 
@@ -870,6 +873,10 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/">中文文本纠错论文复现中期报告</a>
+          </li>
         
           <li>
             <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/">UI系统-作业6</a>
@@ -887,10 +894,6 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
             <a href="/2021/10/16/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-16-homework3/">游戏对象与图形基础-作业3</a>
           </li>
         
-          <li>
-            <a href="/2021/10/06/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-06-homework2/">游戏对象与图形基础-作业2</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -903,7 +906,7 @@ Component: 所有附加在GameObject上的事物的基类</code></pre>
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2021 殷轲<br>
+      &copy; 2023 殷轲<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>中文文本纠错论文复现中期报告 | 殷轲的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="中文文本纠错论文复现中期报告原论文链接：https:&#x2F;&#x2F;aclanthology.org&#x2F;2022.findings-acl.98.pdf 1、原论文亮点分析1. 其中(a)(b)是以前的模型，(c)是作者论文中提出的模型 在纠错网络的预测层加入了Detection Module的Hidden States，用Detection Module输出的向量和Correction Module输出的向量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中文文本纠错论文复现中期报告">
+<meta property="og:url" content="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/index.html">
+<meta property="og:site_name" content="殷轲的博客">
+<meta property="og:description" content="中文文本纠错论文复现中期报告原论文链接：https:&#x2F;&#x2F;aclanthology.org&#x2F;2022.findings-acl.98.pdf 1、原论文亮点分析1. 其中(a)(b)是以前的模型，(c)是作者论文中提出的模型 在纠错网络的预测层加入了Detection Module的Hidden States，用Detection Module输出的向量和Correction Module输出的向量">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/img/1.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/img/2.png">
+<meta property="og:image" content="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/img/3.png">
+<meta property="article:published_time" content="2023-02-25T04:08:21.946Z">
+<meta property="article:modified_time" content="2023-02-25T10:14:09.192Z">
+<meta property="article:author" content="殷轲">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/img/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="殷轲的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">殷轲的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-毕业设计_中文文本纠错/2023-02-25-report" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/" class="article-date">
+  <time datetime="2023-02-25T04:08:21.946Z" itemprop="datePublished">2023-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/">毕业设计_中文文本纠错</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      中文文本纠错论文复现中期报告
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="中文文本纠错论文复现中期报告"><a href="#中文文本纠错论文复现中期报告" class="headerlink" title="中文文本纠错论文复现中期报告"></a>中文文本纠错论文复现中期报告</h2><p>原论文链接：<a target="_blank" rel="noopener" href="https://aclanthology.org/2022.findings-acl.98.pdf">https://aclanthology.org/2022.findings-acl.98.pdf</a></p>
+<h3 id="1、原论文亮点分析"><a href="#1、原论文亮点分析" class="headerlink" title="1、原论文亮点分析"></a>1、原论文亮点分析</h3><p>1.<img src="./img/1.png"></p>
+<pre><code>其中(a)(b)是以前的模型，(c)是作者论文中提出的模型</code></pre>
+<p>在纠错网络的预测层加入了<code>Detection Module</code>的<code>Hidden States</code>，用<code>Detection Module</code>输出的向量和<code>Correction Module</code>输出的向量进行融合，然后再去做预测。保留了原有错字信息使得预测的结果更加准确。例如：input为<strong>你痴了吗</strong>，(b)中的mask input会变为<strong>你[MASK]了吗</strong>，此时可能会修正为<strong>你<code>渴</code>了吗</strong>、<strong>你<code>饿</code>了吗</strong>等等，但如果像(c)中同时向纠错网络中加入<code>痴</code>这个原文本中的错误信息，就更会倾向于修正为<strong>你<code>吃</code>了吗</strong></p>
+<p>2.使用<code>word_embedding</code>来初始化Correction Network的<code>Dense Layer</code>（全连接层）的参数。因为<code>Dense Layer</code>输入通道为词向量维度，输出通道为词典大小，<code>word Embedding</code>是将词index转成词向量，所以其参数刚好是<code>Dense Layer</code>的转置，使得模型可以更快更稳定的收敛。</p>
+<p>3.<img src="./img/2.png"></p>
+<p>使用BERT的weights参数来为Detection Network的Transformer参数初始化，如上图所示，作者指出使用BERT的权重为其初始化时，设置transformer为任意层数，总是可以让Detection Network可以更快更稳定的学习。</p>
+<h3 id="2、论文亮点部分复现代码"><a href="#2、论文亮点部分复现代码" class="headerlink" title="2、论文亮点部分复现代码"></a>2、论文亮点部分复现代码</h3><p><img src="./img/3.png"></p>
+<p>Correction Network</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, inputs, word_embeddings, detect_hidden_states</span>):</span></span><br><span class="line">    <span class="comment"># 1. 使用bert进行前向传递</span></span><br><span class="line">    bert_outputs = self.bert(token_type_ids=inputs[<span class="string">&#x27;token_type_ids&#x27;</span>],</span><br><span class="line">                             attention_mask=inputs[<span class="string">&#x27;attention_mask&#x27;</span>],</span><br><span class="line">                             inputs_embeds=word_embeddings)</span><br><span class="line">    <span class="comment"># 2. 将bert的hidden_state和Detection Network的hidden state进行融合。</span></span><br><span class="line">    hidden_states = bert_outputs[<span class="string">&#x27;last_hidden_state&#x27;</span>] + detect_hidden_states</span><br><span class="line">    <span class="comment"># 3. 最终使用全连接层进行token预测</span></span><br><span class="line">    <span class="keyword">return</span> self.dense_layer(hidden_states)</span><br></pre></td></tr></table></figure>
+
+<p>Detection Network</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, word_embeddings</span>):</span></span><br><span class="line">    <span class="comment"># 获取token序列的长度</span></span><br><span class="line">    sequence_length = word_embeddings.size(<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 生成position_embedding</span></span><br><span class="line">    position_embeddings = self.position_embeddings(torch.LongTensor(range(sequence_length)).to(device))</span><br><span class="line">    <span class="comment"># 融合work_embedding和position_embedding</span></span><br><span class="line">    x = word_embeddings + position_embeddings</span><br><span class="line">    <span class="comment"># 将x一层一层的使用transformer encoder进行向后传递</span></span><br><span class="line">    <span class="keyword">for</span> transformer_layer <span class="keyword">in</span> self.transformer_blocks:</span><br><span class="line">        x = transformer_layer(x)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 最终返回Detection Network输出的hidden states和预测结果</span></span><br><span class="line">    hidden_states = x</span><br><span class="line">    <span class="keyword">return</span> hidden_states, self.dense_layer(hidden_states)</span><br></pre></td></tr></table></figure>
+
+<p>模型训练forward()方法中设置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先获取word embedding，Correction Network和Detection Network都要用</span></span><br><span class="line">   inputs, word_embeddings = self.correction_network.get_inputs_and_word_embeddings(sequences, max_length)    </span><br><span class="line"><span class="comment"># Detection Network进行前向传递，获取输出的Hidden State和预测结果</span></span><br><span class="line">   hidden_states, detection_outputs = self.detection_network(word_embeddings)</span><br><span class="line">   <span class="comment"># Correction Network进行前向传递，获取其预测结果</span></span><br><span class="line">   correction_outputs = self.correction_network(inputs, word_embeddings, hidden_states)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>使用哈工大讯飞联合实验室的中文BERT-wwm模型</p>
+<p>模型链接：<a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-roberta-wwm-ext">https://huggingface.co/hfl/chinese-roberta-wwm-ext</a></p>
+<pre><code>由于谷歌官方发布的BERT-base, Chinese中，中文是以字为粒度进行切分，没有考虑到传统NLP中的中文分词（CWS）。 BERT-Whole Word Masking (wwm)将全词Mask的方法应用在了中文中，使用了中文维基百科（包括简体和繁体）进行训练，并且使用了哈工大LTP作为分词工具，即对组成同一个词的汉字全部进行Mask。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/" data-id="clejt3brd0000hgv5bld6epzx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UI系统-作业6</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/">3D游戏编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/">毕业设计_中文文本纠错</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1_%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99/2023-02-25-report/">中文文本纠错论文复现中期报告</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/27/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-27-homework6/">UI系统-作业6</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/02/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-12-02-homework5/">模型与动画-作业5</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/25/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-25-homework4/">与游戏世界交互&amp;物理系统与碰撞-作业4</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/16/3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/2021-10-16-homework3/">游戏对象与图形基础-作业3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 殷轲<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
